@@ -16,6 +16,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
@@ -33,7 +34,8 @@
         <Label Content="Code Postal :" Grid.Row="3" Grid.Column="0" Margin="70,0,0,0" VerticalAlignment="Center"/>
         <Label Content="Ville :" Grid.Row="4" Grid.Column="0" Margin="70,0,0,0" VerticalAlignment="Center"/>
         <Label Content="Age :" Grid.Row="5" Grid.Column="0" Margin="70,0,0,0" VerticalAlignment="Center"/>
-        <Label Content="Sexe :" Grid.Row="6" Grid.Column="0" Margin="70,0,0,0" VerticalAlignment="Center"/>
+        <Label Content="Tuteur :" Grid.Row="6" Grid.Column="0" Margin="70,0,0,0" VerticalAlignment="Center"/>
+        <Label Content="Sexe :" Grid.Row="7" Grid.Column="0" Margin="70,0,0,0" VerticalAlignment="Center"/>
 
         <TextBox Name="tboNom" Text="{Binding CurrentStagiaire.Nom}" MinWidth="150" MinHeight="25"  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
         <TextBox Name="tboPrenom" Text="{Binding CurrentStagiaire.Prenom}" MinWidth="150" MinHeight="25"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
@@ -41,12 +43,31 @@
         <TextBox Name="tboCodePostal" Text="{Binding CurrentStagiaire.CodePostal}" MinWidth="150" MinHeight="25"  Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
         <TextBox Name="tboVille" Text="{Binding CurrentStagiaire.Ville}" MinWidth="150" MinHeight="25"  Grid.Column="1" Grid.Row="4" VerticalAlignment="Center"/>
         <TextBox Name="tboAge" Text="{Binding CurrentStagiaire.Age}" MinWidth="150" MinHeight="25" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ComboBox Name="cboTuteur" SelectedValue="{Binding Path=CurrentStagiaire.Tuteur, Mode=TwoWay}"
+                  MinWidth="150" MinHeight="25" 
+                  Grid.Column="1" Grid.Row="6" 
+                  VerticalAlignment="Center"
+                  ItemsSource="{Binding ListTuteurs}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Nom}" />
+                        <TextBlock Grid.Column="1"  Text="{Binding Prenom}" Margin="5,0,0,0" />
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <RadioButton Content="Masculin" Margin="0,0,10,0" IsChecked="{Binding IsMasculin}"/>
             <RadioButton Content="Féminin" IsChecked="{Binding IsFeminin}"/>
         </StackPanel>
+        <Image Grid.Column="2" Grid.RowSpan="4" Source="{Binding ImageSource}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30"/>
 
-        <Button Name="btnSave" Content="Sauvegarder" Grid.Row="7" Grid.Column="1" 
+        <Button Name="btnSave" Content="Sauvegarder" Grid.Row="8" Grid.Column="1" 
                 HorizontalAlignment="Center" VerticalAlignment="Center"
                 Command="{Binding SaveUpdateCommand}"/>
     </Grid>

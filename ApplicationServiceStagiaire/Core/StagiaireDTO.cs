@@ -28,6 +28,7 @@ namespace Core
         private string _ville;
         private int? _age;
         private string _sexe;
+        private TuteurDTO _tuteur;
 
         public int Id
         {
@@ -92,6 +93,15 @@ namespace Core
                 NotifyPropertyChanged(nameof(Sexe));
             }
         }
+        public TuteurDTO Tuteur
+        {
+            get => _tuteur;
+            set
+            {
+                _tuteur = value;
+                NotifyPropertyChanged(nameof(Tuteur));
+            }
+        }
 
         public string Prenom
         {
@@ -112,9 +122,10 @@ namespace Core
             this.Ville = string.Empty;
             this.Age = null;
             this.Sexe = "M";
+            this.Tuteur = null;
         }
 
-        public StagiaireDTO(string Nom, string Prenom, string Adresse, int? CodePostal, string Ville, int? Age, string Sexe)
+        public StagiaireDTO(string Nom, string Prenom, string Adresse, int? CodePostal, string Ville, int? Age, string Sexe, TuteurDTO Tuteur)
         {
             this.Nom = Nom;
             this.Prenom = Prenom;
@@ -123,9 +134,10 @@ namespace Core
             this.Ville = Ville;
             this.Age = Age;
             this.Sexe = Sexe;
+            this.Tuteur = Tuteur;
         }
 
-        public StagiaireDTO(int Id, string Nom, string Prenom, string Adresse, int? CodePostal, string Ville, int? Age, string Sexe)
+        public StagiaireDTO(int Id, string Nom, string Prenom, string Adresse, int? CodePostal, string Ville, int? Age, string Sexe, TuteurDTO Tuteur)
         {
             this.Id = Id;
             this.Nom = Nom;
@@ -135,6 +147,7 @@ namespace Core
             this.Ville = Ville;
             this.Age = Age;
             this.Sexe = Sexe;
+            this.Tuteur = Tuteur;
         }
     }
 }

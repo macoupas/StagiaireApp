@@ -19,6 +19,12 @@
   <wsdl:message name="IServiceStagiaire_DeleteStagiaire_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteStagiaireResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_GetStagiaireById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStagiaireById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_GetStagiaireById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStagiaireByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceStagiaire_UpdateExistingStagiaire_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateExistingStagiaire" />
   </wsdl:message>
@@ -31,6 +37,54 @@
   <wsdl:message name="IServiceStagiaire_AddStagiaire_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddStagiaireResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_ListAllTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_ListAllTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllTuteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_DeleteTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_DeleteTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTuteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_GetTuteurById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTuteurById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_GetTuteurById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTuteurByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_UpdateExistingTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistingTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_UpdateExistingTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistingTuteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_AddTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_AddTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTuteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_AddStagiaireToTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStagiaireToTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_AddStagiaireToTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStagiaireToTuteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_DeleteStagiaireOfTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStagiaireOfTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_DeleteStagiaireOfTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStagiaireOfTuteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_ListStagiaireOfTuteur_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListStagiaireOfTuteur" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_ListStagiaireOfTuteur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListStagiaireOfTuteurResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceStagiaire">
     <wsdl:operation name="ListAllStagiaire">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/ListAllStagiaire" message="tns:IServiceStagiaire_ListAllStagiaire_InputMessage" />
@@ -40,6 +94,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaire" message="tns:IServiceStagiaire_DeleteStagiaire_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaireResponse" message="tns:IServiceStagiaire_DeleteStagiaire_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetStagiaireById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/GetStagiaireById" message="tns:IServiceStagiaire_GetStagiaireById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/GetStagiaireByIdResponse" message="tns:IServiceStagiaire_GetStagiaireById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateExistingStagiaire">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaire" message="tns:IServiceStagiaire_UpdateExistingStagiaire_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaireResponse" message="tns:IServiceStagiaire_UpdateExistingStagiaire_OutputMessage" />
@@ -47,6 +105,38 @@
     <wsdl:operation name="AddStagiaire">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/AddStagiaire" message="tns:IServiceStagiaire_AddStagiaire_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/AddStagiaireResponse" message="tns:IServiceStagiaire_AddStagiaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/ListAllTuteur" message="tns:IServiceStagiaire_ListAllTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/ListAllTuteurResponse" message="tns:IServiceStagiaire_ListAllTuteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteTuteur" message="tns:IServiceStagiaire_DeleteTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteTuteurResponse" message="tns:IServiceStagiaire_DeleteTuteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTuteurById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/GetTuteurById" message="tns:IServiceStagiaire_GetTuteurById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/GetTuteurByIdResponse" message="tns:IServiceStagiaire_GetTuteurById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/UpdateExistingTuteur" message="tns:IServiceStagiaire_UpdateExistingTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/UpdateExistingTuteurResponse" message="tns:IServiceStagiaire_UpdateExistingTuteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/AddTuteur" message="tns:IServiceStagiaire_AddTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/AddTuteurResponse" message="tns:IServiceStagiaire_AddTuteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStagiaireToTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/AddStagiaireToTuteur" message="tns:IServiceStagiaire_AddStagiaireToTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/AddStagiaireToTuteurResponse" message="tns:IServiceStagiaire_AddStagiaireToTuteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStagiaireOfTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaireOfTuteur" message="tns:IServiceStagiaire_DeleteStagiaireOfTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaireOfTuteurResponse" message="tns:IServiceStagiaire_DeleteStagiaireOfTuteur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListStagiaireOfTuteur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/ListStagiaireOfTuteur" message="tns:IServiceStagiaire_ListStagiaireOfTuteur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/ListStagiaireOfTuteurResponse" message="tns:IServiceStagiaire_ListStagiaireOfTuteur_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceStagiaire" type="tns:IServiceStagiaire">
@@ -69,6 +159,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetStagiaireById">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/GetStagiaireById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateExistingStagiaire">
       <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaire" style="document" />
       <wsdl:input>
@@ -80,6 +179,78 @@
     </wsdl:operation>
     <wsdl:operation name="AddStagiaire">
       <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/AddStagiaire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/ListAllTuteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/DeleteTuteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTuteurById">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/GetTuteurById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/UpdateExistingTuteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/AddTuteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStagiaireToTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/AddStagiaireToTuteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStagiaireOfTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/DeleteStagiaireOfTuteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListStagiaireOfTuteur">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/ListStagiaireOfTuteur" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

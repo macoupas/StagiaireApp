@@ -62,5 +62,19 @@ namespace ServiceAppStagiaire
                 return new ResponseData<bool>(false, e.Message, false);
             }
         }
+
+        public ResponseData<IEnumerable<TuteurDTO>> ListAllTuteur()
+        {
+            try
+            {
+                return serviceMetier.ListAllTuteur();
+            }
+            catch (Exception e)
+            {
+
+                return new ResponseData<IEnumerable<TuteurDTO>>(false, e.Message, null);
+
+            }
+        }
     }
 }

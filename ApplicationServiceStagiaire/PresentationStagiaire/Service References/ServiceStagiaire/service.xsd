@@ -27,31 +27,157 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetStagiaireById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stagiaireId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStagiaireByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="GetStagiaireByIdResult" nillable="true" type="q4:ResponseDataOfStagiaireDTOT2tRyUvb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateExistingStagiaire">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="stagiaireToUpdate" nillable="true" type="q4:StagiaireDTO" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="stagiaireToUpdate" nillable="true" type="q5:StagiaireDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateExistingStagiaireResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="UpdateExistingStagiaireResult" nillable="true" type="q5:ResponseDataOfboolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="UpdateExistingStagiaireResult" nillable="true" type="q6:ResponseDataOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddStagiaire">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="stagiaireToAdd" nillable="true" type="q6:StagiaireDTO" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="stagiaireToAdd" nillable="true" type="q7:StagiaireDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddStagiaireResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="AddStagiaireResult" nillable="true" type="q7:ResponseDataOfboolean" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="AddStagiaireResult" nillable="true" type="q8:ResponseDataOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllTuteur">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="ListAllTuteurResult" nillable="true" type="q9:ResponseDataOfArrayOfTuteurDTOT2tRyUvb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTuteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="tuteurToDelete" nillable="true" type="q10:TuteurDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="DeleteTuteurResult" nillable="true" type="q11:ResponseDataOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTuteurById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tuteurId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTuteurByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="GetTuteurByIdResult" nillable="true" type="q12:ResponseDataOfTuteurDTOT2tRyUvb" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExistingTuteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="tuteurToUpdate" nillable="true" type="q13:TuteurDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExistingTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="UpdateExistingTuteurResult" nillable="true" type="q14:ResponseDataOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTuteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="tuteurToAdd" nillable="true" type="q15:TuteurDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="AddTuteurResult" nillable="true" type="q16:ResponseDataOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStagiaireToTuteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="tuteurToUpdate" nillable="true" type="q17:TuteurDTO" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="stagiaireToAdd" nillable="true" type="q18:StagiaireDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStagiaireToTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="AddStagiaireToTuteurResult" nillable="true" type="q19:ResponseDataOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStagiaireOfTuteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="tuteurToUpdate" nillable="true" type="q20:TuteurDTO" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="stagiaireToDelete" nillable="true" type="q21:StagiaireDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStagiaireOfTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="DeleteStagiaireOfTuteurResult" nillable="true" type="q22:ResponseDataOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListStagiaireOfTuteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="tuteurToGetStagiaire" nillable="true" type="q23:TuteurDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListStagiaireOfTuteurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Core" minOccurs="0" name="ListStagiaireOfTuteurResult" nillable="true" type="q24:ResponseDataOfArrayOfStagiaireDTOT2tRyUvb" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

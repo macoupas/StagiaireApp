@@ -10,6 +10,7 @@ namespace BusinessLogicStagiaire
     public class ServiceStagiaire : IServiceStagaire
     {
         private StagiaireMapper stagiaireMapper = new StagiaireMapper();
+        private TuteurMapper tuteurMapper = new TuteurMapper();
 
         public ServiceStagiaire()
         {
@@ -24,7 +25,7 @@ namespace BusinessLogicStagiaire
                 {
                     // on récupère la liste des stagiaires
                     List<StagiaireDTO> listOfStagiaireDTO = db.Stagiaire.ToList().Select(x => new StagiaireDTO(x.Id, x.Nom, x.Prenom,
-                        x.Adresse, x.CodePostal, x.Ville, x.Age, x.Sexe)).ToList();
+                        x.Adresse, x.CodePostal, x.Ville, x.Age, x.Sexe, tuteurMapper.TuteurPOCOToTuteurDTO(x.Tuteur))).ToList();
                     //on retourne la liste et le statut de la requete 
                     return new ResponseData<IEnumerable<StagiaireDTO>>(true, "Succes voici la liste des stagiaire", listOfStagiaireDTO);
                 }
@@ -77,6 +78,7 @@ namespace BusinessLogicStagiaire
                         stagiaireToUpdateInDb.Ville = stagiaireToUpdate.Ville;
                         stagiaireToUpdateInDb.Age = stagiaireToUpdate.Age;
                         stagiaireToUpdateInDb.Sexe = stagiaireToUpdate.Sexe;
+                        stagiaireToUpdateInDb.TuteurId = stagiaireToUpdate.Tuteur != null ? (int?)stagiaireToUpdate.Tuteur.Id : null;
                         db.SaveChanges();
 
                         return new ResponseData<bool>(true, null, true);
@@ -108,6 +110,26 @@ namespace BusinessLogicStagiaire
             catch (Exception e)
             {
                 return new ResponseData<bool>(false, e.Message, false);
+            }
+        }
+
+        public ResponseData<IEnumerable<TuteurDTO>> ListAllTuteur()
+        {
+            try
+            {
+                using (var db = new Entities())
+                {
+                    // on récupère la liste des stagiaires
+                    List<TuteurDTO> listOfTuteurDTO = db.Tuteur.ToList().Select(x => new TuteurDTO(x.Id, x.Nom, x.Prenom,
+                    x.Adresse, x.CodePostal, x.Telephone)).ToList();
+                    //on retourne la liste et le statut de la requete 
+                    return new ResponseData<IEnumerable<TuteurDTO>>(true, "Succes voici la liste des tuteurs", listOfTuteurDTO);
+                }
+            }
+            catch (Exception e)
+            {
+                //retourne la raison de l'erreur 
+                return new ResponseData<IEnumerable<TuteurDTO>>(false, e.Message, null);
             }
         }
     }

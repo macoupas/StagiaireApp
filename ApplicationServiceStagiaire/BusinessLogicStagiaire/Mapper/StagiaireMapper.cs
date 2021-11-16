@@ -1,10 +1,13 @@
 ﻿using ApplicationServiceStagiaire;
 using Core;
+using System.Linq;
 
 namespace BusinessLogicStagiaire.Mapper
 {
     public class StagiaireMapper
     {
+        TuteurMapper tuteurMapper = new TuteurMapper();
+
         public Stagiaire StagiaireDTOToStagiairePOCO(StagiaireDTO stagiaire)
         {
             if (stagiaire == null)
@@ -21,6 +24,7 @@ namespace BusinessLogicStagiaire.Mapper
                 stagiairePOCO.Ville = stagiaire.Ville;
                 stagiairePOCO.Age = stagiaire.Age;
                 stagiairePOCO.Sexe = stagiaire.Sexe;
+                stagiairePOCO.TuteurId = stagiaire.Tuteur != null ? (int?)stagiaire.Tuteur.Id : null;
 
                 return stagiairePOCO;
             }
@@ -33,7 +37,8 @@ namespace BusinessLogicStagiaire.Mapper
                 return null;
 
             StagiaireDTO stagiaireDTO = new StagiaireDTO(stagiaire.Nom, stagiaire.Prenom, stagiaire.Adresse, 
-                stagiaire.CodePostal, stagiaire.Ville, stagiaire.Age, stagiaire.Sexe);
+                stagiaire.CodePostal, stagiaire.Ville, stagiaire.Age, stagiaire.Sexe, 
+                tuteurMapper.TuteurPOCOToTuteurDTO(stagiaire.Tuteur));
 
             return stagiaireDTO;
         }

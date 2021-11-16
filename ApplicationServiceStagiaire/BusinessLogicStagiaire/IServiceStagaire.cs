@@ -1,10 +1,5 @@
-﻿using ApplicationServiceStagiaire;
-using Core;
-using System;
+﻿using Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogicStagiaire
 {
@@ -17,5 +12,7 @@ namespace BusinessLogicStagiaire
         ResponseData<bool> UpdateExistingStagiaire(StagiaireDTO stagiaireToUpdate);
 
         ResponseData<bool> AddStagiaire(StagiaireDTO stagiaireToAdd);
+
+        ResponseData<IEnumerable<TuteurDTO>> ListAllTuteur();
     }
 }

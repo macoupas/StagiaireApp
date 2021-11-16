@@ -12,18 +12,20 @@ namespace ApplicationServiceStagiaire
     using System;
     using System.Collections.Generic;
     
-    public partial class Stagiaire
+    public partial class Tuteur
     {
+        public Tuteur()
+        {
+            this.Stagiaire = new HashSet<Stagiaire>();
+        }
+    
         public int Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Adresse { get; set; }
         public Nullable<int> CodePostal { get; set; }
-        public string Ville { get; set; }
-        public Nullable<int> Age { get; set; }
-        public string Sexe { get; set; }
-        public Nullable<int> TuteurId { get; set; }
+        public Nullable<int> Telephone { get; set; }
     
-        public virtual Tuteur Tuteur { get; set; }
+        public virtual ICollection<Stagiaire> Stagiaire { get; set; }
     }
 }

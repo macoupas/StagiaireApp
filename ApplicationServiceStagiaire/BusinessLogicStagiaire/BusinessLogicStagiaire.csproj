@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="IServiceStagaire.cs" />
     <Compile Include="Mapper\StagiaireMapper.cs" />
+    <Compile Include="Mapper\TuteurMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceStagiaire.cs" />
   </ItemGroup>

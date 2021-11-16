@@ -67,20 +67,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelStagiaire.Context.cs">
+    <Compile Include="ModelStagiaireApp.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelStagiaire.Context.tt</DependentUpon>
+      <DependentUpon>ModelStagiaireApp.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelStagiaire.cs">
+    <Compile Include="ModelStagiaireApp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelStagiaire.tt</DependentUpon>
+      <DependentUpon>ModelStagiaireApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelStagiaire.Designer.cs">
+    <Compile Include="ModelStagiaireApp.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelStagiaire.edmx</DependentUpon>
+      <DependentUpon>ModelStagiaireApp.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -89,19 +89,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Stagiaire.cs">
-      <DependentUpon>ModelStagiaire.tt</DependentUpon>
+      <DependentUpon>ModelStagiaireApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tuteur.cs">
+      <DependentUpon>ModelStagiaireApp.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="ModelStagiaire.edmx">
+    <EntityDeploy Include="ModelStagiaireApp.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelStagiaire.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelStagiaireApp.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelStagiaire.edmx.diagram">
-      <DependentUpon>ModelStagiaire.edmx</DependentUpon>
+    <None Include="ModelStagiaireApp.edmx.diagram">
+      <DependentUpon>ModelStagiaireApp.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -117,15 +120,22 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>StagiaireAppDb.mdf</DependentUpon>
     </Content>
-    <Content Include="ModelStagiaire.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelStagiaire.edmx</DependentUpon>
-      <LastGenOutput>ModelStagiaire.Context.cs</LastGenOutput>
+    <Content Include="Database\StagiaireAppFullDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ModelStagiaire.tt">
+    <Content Include="Database\StagiaireAppFullDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>StagiaireAppFullDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="ModelStagiaireApp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelStagiaire.edmx</DependentUpon>
-      <LastGenOutput>ModelStagiaire.cs</LastGenOutput>
+      <DependentUpon>ModelStagiaireApp.edmx</DependentUpon>
+      <LastGenOutput>ModelStagiaireApp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelStagiaireApp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelStagiaireApp.edmx</DependentUpon>
+      <LastGenOutput>ModelStagiaireApp.cs</LastGenOutput>
     </Content>
     <Resource Include="Ressources\StagiaireDbPartial.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

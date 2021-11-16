@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StagiaireAppFullDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Stagiaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar(max)" />
+          <Property Name="Prenom" Type="varchar(max)" />
+          <Property Name="Adresse" Type="varchar(max)" />
+          <Property Name="CodePostal" Type="int" />
+          <Property Name="Ville" Type="varchar(max)" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Sexe" Type="varchar" MaxLength="1" />
+          <Property Name="TuteurId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tuteur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar(max)" />
+          <Property Name="Prenom" Type="varchar(max)" />
+          <Property Name="Adresse" Type="varchar(max)" />
+          <Property Name="CodePostal" Type="int" />
+          <Property Name="Telephone" Type="int" />
+        </EntityType>
+        <Association Name="FK_Stagiaire_ToTuteur">
+          <End Role="Tuteur" Type="Self.Tuteur" Multiplicity="0..1" />
+          <End Role="Stagiaire" Type="Self.Stagiaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tuteur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stagiaire">
+              <PropertyRef Name="TuteurId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StagiaireAppFullDbModelStoreContainer">
+          <EntitySet Name="Stagiaire" EntityType="Self.Stagiaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tuteur" EntityType="Self.Tuteur" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Stagiaire_ToTuteur" Association="Self.FK_Stagiaire_ToTuteur">
+            <End Role="Tuteur" EntitySet="Tuteur" />
+            <End Role="Stagiaire" EntitySet="Stagiaire" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StagiaireAppFullDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Stagiaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CodePostal" Type="Int32" />
+          <Property Name="Ville" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TuteurId" Type="Int32" />
+          <NavigationProperty Name="Tuteur" Relationship="Self.FK_Stagiaire_ToTuteur" FromRole="Stagiaire" ToRole="Tuteur" />
+        </EntityType>
+        <EntityType Name="Tuteur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CodePostal" Type="Int32" />
+          <Property Name="Telephone" Type="Int32" />
+          <NavigationProperty Name="Stagiaire" Relationship="Self.FK_Stagiaire_ToTuteur" FromRole="Tuteur" ToRole="Stagiaire" />
+        </EntityType>
+        <Association Name="FK_Stagiaire_ToTuteur">
+          <End Role="Tuteur" Type="Self.Tuteur" Multiplicity="0..1" />
+          <End Role="Stagiaire" Type="Self.Stagiaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tuteur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stagiaire">
+              <PropertyRef Name="TuteurId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Stagiaire" EntityType="Self.Stagiaire" />
+          <EntitySet Name="Tuteur" EntityType="Self.Tuteur" />
+          <AssociationSet Name="FK_Stagiaire_ToTuteur" Association="Self.FK_Stagiaire_ToTuteur">
+            <End Role="Tuteur" EntitySet="Tuteur" />
+            <End Role="Stagiaire" EntitySet="Stagiaire" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StagiaireAppFullDbModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Stagiaire">
+            <EntityTypeMapping TypeName="StagiaireAppFullDbModel.Stagiaire">
+              <MappingFragment StoreEntitySet="Stagiaire">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="TuteurId" ColumnName="TuteurId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tuteur">
+            <EntityTypeMapping TypeName="StagiaireAppFullDbModel.Tuteur">
+              <MappingFragment StoreEntitySet="Tuteur">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

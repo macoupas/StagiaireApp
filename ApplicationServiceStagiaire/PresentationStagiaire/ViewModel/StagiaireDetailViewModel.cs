@@ -40,6 +40,7 @@ namespace PresentationStagiaire.ViewModel
         private StagiaireDTO currentStagiaire;
         private bool _isMasculin;
         private bool _isFeminin;
+        private List<TuteurDTO> _listTuteurs;
 
         #endregion
 
@@ -78,6 +79,7 @@ namespace PresentationStagiaire.ViewModel
                     this.CurrentStagiaire.Sexe = "F";
                 }
                 NotifyPropertyChanged(nameof(IsMasculin));
+                NotifyPropertyChanged(nameof(ImageSource));
             }
         }
 
@@ -99,6 +101,28 @@ namespace PresentationStagiaire.ViewModel
                     this.CurrentStagiaire.Sexe = "M";
                 }
                 NotifyPropertyChanged(nameof(IsFeminin));
+                NotifyPropertyChanged(nameof(ImageSource));
+            }
+        }
+
+        public string ImageSource
+        {
+            get
+            {
+                return IsMasculin ? @"./Ressources/Men.png" : @"./Ressources/Woman.png";
+            }
+        }
+
+        public List<TuteurDTO> ListTuteurs
+        {
+            get
+            {
+                return this._listTuteurs;
+            }
+            set
+            {
+                this._listTuteurs = value;
+                NotifyPropertyChanged(nameof(ListTuteurs));
             }
         }
 
@@ -108,6 +132,7 @@ namespace PresentationStagiaire.ViewModel
 
         public StagiaireDetailViewModel()
         {
+            ListTuteurs = GetListTuteurDb();
             stagiaireDetailMode = ScreenMode.Creation;
             this.CurrentStagiaire = new StagiaireDTO();
             SaveUpdateCommand = new RelayCommands(SaveUpdateExistingStagiaire);
@@ -116,6 +141,7 @@ namespace PresentationStagiaire.ViewModel
         public StagiaireDetailViewModel(StagiaireDTO stagiaire)
             :this()
         {
+            ListTuteurs = GetListTuteurDb();
             stagiaireDetailMode = ScreenMode.Update;
             this.CurrentStagiaire = stagiaire;
         }
@@ -123,6 +149,19 @@ namespace PresentationStagiaire.ViewModel
         #endregion
 
         #region Methodes
+
+        //recupère la liste de tout les tuteurs en base de données
+        private List<TuteurDTO> GetListTuteurDb()
+        {
+            var response = serviceStagiaire.ListAllTuteur();
+            if (response.IsSucces == true)
+            {
+                List<TuteurDTO> tuteurs = new List<TuteurDTO>();
+                tuteurs = response.Data.ToList();
+                return tuteurs;
+            }
+            return null;
+        }
 
         private void SaveUpdateExistingStagiaire()
         {

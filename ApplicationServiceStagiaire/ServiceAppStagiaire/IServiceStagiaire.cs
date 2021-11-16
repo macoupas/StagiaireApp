@@ -19,5 +19,8 @@ namespace ServiceAppStagiaire
 
         [OperationContract]
         ResponseData<bool> AddStagiaire(StagiaireDTO stagiaireToAdd);
+
+        [OperationContract]
+        ResponseData<IEnumerable<TuteurDTO>> ListAllTuteur();
     }
 }
