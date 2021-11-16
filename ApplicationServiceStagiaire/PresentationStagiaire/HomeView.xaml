@@ -12,6 +12,8 @@
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -47,5 +49,7 @@
 
         <Button Name="btnRefresh" Grid.Row="1" Background="White" BorderBrush="Black" Grid.Column="1" Margin="10" Content="Rafraichir" Command="{Binding RefreshStagiaireCommand}"/>
         <Button Name="btnDetail" Grid.Row="2" Background="White" BorderBrush="Black" Grid.Column="1" Margin="10" Content="Detail" Command="{Binding DetailStagiaireCommand}"/>
+        <Button Name="btnAdd" Grid.Row="3" Background="White" BorderBrush="Black" Grid.Column="1" Margin="10" Content="Ajouter" Command="{Binding AddStagiaireCommand}"/>
+        <Button Name="btnDelete" Grid.Row="4" Background="White" BorderBrush="Black" Grid.Column="1" Margin="10" Content="Supprimer" Command="{Binding DeleteStagiaireCommand}"/>
     </Grid>
 </Window>

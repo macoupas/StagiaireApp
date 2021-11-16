@@ -43,4 +43,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StagiaireDTO" nillable="true" type="tns:StagiaireDTO" />
+  <xs:complexType name="ResponseDataOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponseDataOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Core" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseDataOfboolean" nillable="true" type="tns:ResponseDataOfboolean" />
 </xs:schema>

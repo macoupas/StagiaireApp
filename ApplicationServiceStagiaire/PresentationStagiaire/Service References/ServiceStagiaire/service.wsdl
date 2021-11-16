@@ -13,16 +13,73 @@
   <wsdl:message name="IServiceStagiaire_ListAllStagiaire_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListAllStagiaireResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_DeleteStagiaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStagiaire" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_DeleteStagiaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStagiaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_UpdateExistingStagiaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistingStagiaire" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_UpdateExistingStagiaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistingStagiaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_AddStagiaire_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStagiaire" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStagiaire_AddStagiaire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStagiaireResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceStagiaire">
     <wsdl:operation name="ListAllStagiaire">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/ListAllStagiaire" message="tns:IServiceStagiaire_ListAllStagiaire_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/ListAllStagiaireResponse" message="tns:IServiceStagiaire_ListAllStagiaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStagiaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaire" message="tns:IServiceStagiaire_DeleteStagiaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaireResponse" message="tns:IServiceStagiaire_DeleteStagiaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingStagiaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaire" message="tns:IServiceStagiaire_UpdateExistingStagiaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaireResponse" message="tns:IServiceStagiaire_UpdateExistingStagiaire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStagiaire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStagiaire/AddStagiaire" message="tns:IServiceStagiaire_AddStagiaire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStagiaire/AddStagiaireResponse" message="tns:IServiceStagiaire_AddStagiaire_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceStagiaire" type="tns:IServiceStagiaire">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ListAllStagiaire">
       <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/ListAllStagiaire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStagiaire">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/DeleteStagiaire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistingStagiaire">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStagiaire">
+      <soap:operation soapAction="http://tempuri.org/IServiceStagiaire/AddStagiaire" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

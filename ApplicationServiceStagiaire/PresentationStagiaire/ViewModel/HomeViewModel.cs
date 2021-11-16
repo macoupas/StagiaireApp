@@ -79,6 +79,8 @@ namespace PresentationStagiaire.ViewModel
         {
             listStagiaire = new ObservableCollection<StagiaireDTO>(GetListDb());
             DetailStagiaireCommand = new RelayCommands(ShowDetail);
+            DeleteStagiaireCommand = new RelayCommands(DeleteFunction);
+            AddStagiaireCommand = new RelayCommands(AddFunction);
             RefreshStagiaireCommand = new RelayCommands(RefreshFunction);
         }
 
@@ -89,7 +91,9 @@ namespace PresentationStagiaire.ViewModel
         public static Action CloseAction { get; set; }
         public static Action Refresh { get; set; }
         public ICommand RefreshStagiaireCommand { get; set; }
+        public ICommand AddStagiaireCommand { get; set; }
         public ICommand DetailStagiaireCommand { get; set; }
+        public ICommand DeleteStagiaireCommand { get; set; }
 
         #endregion
 
@@ -110,13 +114,27 @@ namespace PresentationStagiaire.ViewModel
 
         private void ShowDetail()
         {
-            //TODO: Implémenter cette fonctionnalitée
+            StagiaireDetailView stagiaireDetailView = new StagiaireDetailView(Stagiaire);
+            stagiaireDetailView.Show();
         }
 
         private void RefreshFunction()
         {
             //TODO : Gérer le booleen de retour du service métier et afficher un message en cas d'erreur
             ListStagiaire = new ObservableCollection<StagiaireDTO>(GetListDb());
+        }
+
+        private void DeleteFunction()
+        {
+            //TODO : Gérer le booleen de retour du service métier et afficher un message en cas d'erreur
+            serviceStagiaire.DeleteStagiaire(Stagiaire);
+            ListStagiaire = new ObservableCollection<StagiaireDTO>(GetListDb());
+        }
+
+        private void AddFunction()
+        {
+            StagiaireDetailView stagiaireDetailView = new StagiaireDetailView();
+            stagiaireDetailView.Show();
         }
 
         #endregion

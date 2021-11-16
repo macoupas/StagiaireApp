@@ -10,5 +10,14 @@ namespace ServiceAppStagiaire
     {
         [OperationContract]
         ResponseData<IEnumerable<StagiaireDTO>> ListAllStagiaire();
+
+        [OperationContract]
+        ResponseData<bool> DeleteStagiaire(StagiaireDTO stagiaireToDelete);
+
+        [OperationContract]
+        ResponseData<bool> UpdateExistingStagiaire(StagiaireDTO stagiaireToUpdate);
+
+        [OperationContract]
+        ResponseData<bool> AddStagiaire(StagiaireDTO stagiaireToAdd);
     }
 }

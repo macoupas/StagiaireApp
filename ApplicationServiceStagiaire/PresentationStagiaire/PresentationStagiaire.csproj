@@ -101,7 +101,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="StagiaireDetailView.xaml.cs">
+      <DependentUpon>StagiaireDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\StagiaireDetailViewModel.cs" />
     <Page Include="HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,6 +118,10 @@
       <DependentUpon>HomeView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StagiaireDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

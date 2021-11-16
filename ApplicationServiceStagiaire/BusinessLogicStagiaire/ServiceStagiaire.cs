@@ -36,5 +36,79 @@ namespace BusinessLogicStagiaire
             }
 
         }
+
+        public ResponseData<bool> DeleteStagiaire(StagiaireDTO stagiaireToDelete)
+        {
+            try
+            {
+                ResponseData<bool> result = new ResponseData<bool>(true, null, true);
+
+                using (var db = new Entities())
+                {
+                    var stagiaireToDeleteInDb = db.Stagiaire.FirstOrDefault(x => x.Id == stagiaireToDelete.Id);
+                    if (stagiaireToDeleteInDb != null)
+                    {
+                        db.Stagiaire.Remove(stagiaireToDeleteInDb);
+                        db.SaveChanges();
+                    }
+                    return result;
+                }
+            }
+            catch (Exception e)
+            {
+                return new ResponseData<bool>(false, e.Message, false); ;
+            }
+        }
+
+        public ResponseData<bool> UpdateExistingStagiaire(StagiaireDTO stagiaireToUpdate)
+        {
+            try
+            {
+                using (var db = new Entities())
+                {
+                    var stagiaireToUpdateInDb = db.Stagiaire.SingleOrDefault(x => x.Id == stagiaireToUpdate.Id);
+
+                    if (stagiaireToUpdateInDb != null)
+                    {
+                        stagiaireToUpdateInDb.Nom = stagiaireToUpdate.Nom;
+                        stagiaireToUpdateInDb.Prenom = stagiaireToUpdate.Prenom;
+                        stagiaireToUpdateInDb.Adresse = stagiaireToUpdate.Adresse;
+                        stagiaireToUpdateInDb.CodePostal = stagiaireToUpdate.CodePostal;
+                        stagiaireToUpdateInDb.Ville = stagiaireToUpdate.Ville;
+                        stagiaireToUpdateInDb.Age = stagiaireToUpdate.Age;
+                        stagiaireToUpdateInDb.Sexe = stagiaireToUpdate.Sexe;
+                        db.SaveChanges();
+
+                        return new ResponseData<bool>(true, null, true);
+                    }
+
+                    return new ResponseData<bool>(false, "User not existing in database", false);
+                }
+            }
+            catch (Exception e)
+            {
+                return new ResponseData<bool>(false, e.Message, false);
+            }
+        }
+
+        public ResponseData<bool> AddStagiaire(StagiaireDTO stagiaireToAdd)
+        {
+            try
+            {
+                var stagiaireToCreate = stagiaireMapper.StagiaireDTOToStagiairePOCO(stagiaireToAdd);
+
+                using (var db = new Entities())
+                {
+                    db.Stagiaire.Add(stagiaireToCreate);
+                    db.SaveChanges();
+                }
+
+                return new ResponseData<bool>(true, null, true);
+            }
+            catch (Exception e)
+            {
+                return new ResponseData<bool>(false, e.Message, false);
+            }
+        }
     }
 }

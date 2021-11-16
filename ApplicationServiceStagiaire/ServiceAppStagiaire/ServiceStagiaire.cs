@@ -26,5 +26,41 @@ namespace ServiceAppStagiaire
 
             }
         }
+
+        public ResponseData<bool> DeleteStagiaire(StagiaireDTO stagiaireToDelete)
+        {
+            try
+            {
+                return serviceMetier.DeleteStagiaire(stagiaireToDelete);
+            }
+            catch (Exception e)
+            {
+                return new ResponseData<bool>(false, e.Message, false);
+            }
+        }
+
+        public ResponseData<bool> UpdateExistingStagiaire(StagiaireDTO stagiaireToUpdate)
+        {
+            try
+            {
+                return serviceMetier.UpdateExistingStagiaire(stagiaireToUpdate);
+            }
+            catch (Exception e)
+            {
+                return new ResponseData<bool>(false, e.Message, false);
+            }
+        }
+
+        public ResponseData<bool> AddStagiaire(StagiaireDTO stagiaireToAdd)
+        {
+            try
+            {
+                return serviceMetier.AddStagiaire(stagiaireToAdd);
+            }
+            catch (Exception e)
+            {
+                return new ResponseData<bool>(false, e.Message, false);
+            }
+        }
     }
 }

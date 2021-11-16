@@ -20,6 +20,24 @@ namespace PresentationStagiaire.ServiceStagiaire {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/ListAllStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/ListAllStagiaireResponse")]
         System.Threading.Tasks.Task<Core.ResponseData<Core.StagiaireDTO[]>> ListAllStagiaireAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/DeleteStagiaireResponse")]
+        Core.ResponseData<bool> DeleteStagiaire(Core.StagiaireDTO stagiaireToDelete);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/DeleteStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/DeleteStagiaireResponse")]
+        System.Threading.Tasks.Task<Core.ResponseData<bool>> DeleteStagiaireAsync(Core.StagiaireDTO stagiaireToDelete);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaireResponse")]
+        Core.ResponseData<bool> UpdateExistingStagiaire(Core.StagiaireDTO stagiaireToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/UpdateExistingStagiaireResponse")]
+        System.Threading.Tasks.Task<Core.ResponseData<bool>> UpdateExistingStagiaireAsync(Core.StagiaireDTO stagiaireToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/AddStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/AddStagiaireResponse")]
+        Core.ResponseData<bool> AddStagiaire(Core.StagiaireDTO stagiaireToAdd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStagiaire/AddStagiaire", ReplyAction="http://tempuri.org/IServiceStagiaire/AddStagiaireResponse")]
+        System.Threading.Tasks.Task<Core.ResponseData<bool>> AddStagiaireAsync(Core.StagiaireDTO stagiaireToAdd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +73,30 @@ namespace PresentationStagiaire.ServiceStagiaire {
         
         public System.Threading.Tasks.Task<Core.ResponseData<Core.StagiaireDTO[]>> ListAllStagiaireAsync() {
             return base.Channel.ListAllStagiaireAsync();
+        }
+        
+        public Core.ResponseData<bool> DeleteStagiaire(Core.StagiaireDTO stagiaireToDelete) {
+            return base.Channel.DeleteStagiaire(stagiaireToDelete);
+        }
+        
+        public System.Threading.Tasks.Task<Core.ResponseData<bool>> DeleteStagiaireAsync(Core.StagiaireDTO stagiaireToDelete) {
+            return base.Channel.DeleteStagiaireAsync(stagiaireToDelete);
+        }
+        
+        public Core.ResponseData<bool> UpdateExistingStagiaire(Core.StagiaireDTO stagiaireToUpdate) {
+            return base.Channel.UpdateExistingStagiaire(stagiaireToUpdate);
+        }
+        
+        public System.Threading.Tasks.Task<Core.ResponseData<bool>> UpdateExistingStagiaireAsync(Core.StagiaireDTO stagiaireToUpdate) {
+            return base.Channel.UpdateExistingStagiaireAsync(stagiaireToUpdate);
+        }
+        
+        public Core.ResponseData<bool> AddStagiaire(Core.StagiaireDTO stagiaireToAdd) {
+            return base.Channel.AddStagiaire(stagiaireToAdd);
+        }
+        
+        public System.Threading.Tasks.Task<Core.ResponseData<bool>> AddStagiaireAsync(Core.StagiaireDTO stagiaireToAdd) {
+            return base.Channel.AddStagiaireAsync(stagiaireToAdd);
         }
     }
 }
