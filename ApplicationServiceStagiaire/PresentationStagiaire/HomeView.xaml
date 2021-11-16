@@ -1,0 +1,51 @@
+﻿<Window x:Class="PresentationStagiaire.HomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationStagiaire"
+        mc:Ignorable="d"
+        Title="Application Stagiaire" Height="400" Width="650" FontFamily="Calibri">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Ressources/Background.png"></ImageBrush>
+        </Grid.Background>
+
+        <Label x:Name="lblStagiaireView" Content="Liste stagiaire" Grid.Row="0" VerticalAlignment="Center" 
+               Margin="20,0,0,0" FontSize="20" Grid.ColumnSpan="2"/>
+
+        <ListBox x:Name="lstStagiaire" ItemsSource="{Binding ListStagiaire}" SelectedValue="{Binding Stagiaire}"
+                 Grid.Row="1" Grid.Column="0" Grid.RowSpan="5" Background="Transparent" BorderThickness="0" Margin="20,0,0,0">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Nom}" />
+                        <TextBlock Grid.Column="1"  Text="{Binding Prenom}" Margin="5,0,0,0" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <Button Name="btnRefresh" Grid.Row="1" Background="White" BorderBrush="Black" Grid.Column="1" Margin="10" Content="Rafraichir" Command="{Binding RefreshStagiaireCommand}"/>
+        <Button Name="btnDetail" Grid.Row="2" Background="White" BorderBrush="Black" Grid.Column="1" Margin="10" Content="Detail" Command="{Binding DetailStagiaireCommand}"/>
+    </Grid>
+</Window>
