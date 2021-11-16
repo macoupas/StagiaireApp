@@ -15,6 +15,9 @@ namespace ServiceAppStagiaire
         ResponseData<bool> DeleteStagiaire(StagiaireDTO stagiaireToDelete);
 
         [OperationContract]
+        ResponseData<StagiaireDTO> GetStagiaireById(int stagiaireId);
+
+        [OperationContract]
         ResponseData<bool> UpdateExistingStagiaire(StagiaireDTO stagiaireToUpdate);
 
         [OperationContract]
@@ -22,5 +25,26 @@ namespace ServiceAppStagiaire
 
         [OperationContract]
         ResponseData<IEnumerable<TuteurDTO>> ListAllTuteur();
+
+        [OperationContract]
+        ResponseData<bool> DeleteTuteur(TuteurDTO tuteurToDelete);
+
+        [OperationContract]
+        ResponseData<TuteurDTO> GetTuteurById(int tuteurId);
+
+        [OperationContract]
+        ResponseData<bool> UpdateExistingTuteur(TuteurDTO tuteurToUpdate);
+
+        [OperationContract]
+        ResponseData<bool> AddTuteur(TuteurDTO tuteurToAdd);
+
+        [OperationContract]
+        ResponseData<bool> AddStagiaireToTuteur(TuteurDTO tuteurToUpdate, StagiaireDTO stagiaireToAdd);
+
+        [OperationContract]
+        ResponseData<bool> DeleteStagiaireOfTuteur(TuteurDTO tuteurToUpdate, StagiaireDTO stagiaireToDelete);
+
+        [OperationContract]
+        ResponseData<IEnumerable<StagiaireDTO>> ListStagiaireOfTuteur(TuteurDTO tuteurToGetStagiaire);
     }
 }

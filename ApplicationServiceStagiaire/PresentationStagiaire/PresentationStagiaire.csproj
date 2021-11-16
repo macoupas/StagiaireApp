@@ -104,8 +104,16 @@
     <Compile Include="StagiaireDetailView.xaml.cs">
       <DependentUpon>StagiaireDetailView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StagiaireTuteurView.xaml.cs">
+      <DependentUpon>StagiaireTuteurView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TuteurView.xaml.cs">
+      <DependentUpon>TuteurView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\StagiaireDetailViewModel.cs" />
+    <Compile Include="ViewModel\StagiaireTuteurViewModel.cs" />
+    <Compile Include="ViewModel\TuteurViewModel.cs" />
     <Page Include="HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +127,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="StagiaireDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StagiaireTuteurView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TuteurView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
